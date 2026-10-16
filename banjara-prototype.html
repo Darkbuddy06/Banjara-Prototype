@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Banjara – Rajasthan prototype</title>
+<style>
+:root{--bg:#FAF6EA;--card:#FFFFFF;--ink:#1B2B26;--mute:#5E6B65;--line:#E6DFCB;--green:#1F4A3A;--onGreen:#FAF6EA;--red:#C94B2E;--gold:#E8B33A;--soft:#F1EAD3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15201C;--card:#1E2C27;--ink:#F3EEDD;--mute:#A9B5AE;--line:#33443D;--green:#7CC4A0;--onGreen:#11201A;--red:#F08A6C;--gold:#E8B33A;--soft:#243530}}
+:root[data-theme="dark"]{--bg:#15201C;--card:#1E2C27;--ink:#F3EEDD;--mute:#A9B5AE;--line:#33443D;--green:#7CC4A0;--onGreen:#11201A;--red:#F08A6C;--gold:#E8B33A;--soft:#243530}
+:root{--btnText:#fff}
+:root[data-skin="desert"]{--bg:#F7E9D0;--card:#FFF8EA;--ink:#3A2312;--mute:#7A5C42;--line:#E5CFA8;--green:#9A4A12;--onGreen:#FFF8EA;--red:#C2410C;--gold:#E3A008;--soft:#F0D9AE}
+:root[data-skin="royal"]{--bg:#FBF3F0;--card:#FFFFFF;--ink:#2E1220;--mute:#765A66;--line:#EBD5D3;--green:#7B1E3A;--onGreen:#FFF3E6;--red:#A8311F;--gold:#D4A017;--soft:#F4DDDD}
+:root[data-skin="midnight"]{--bg:#0F1A2B;--card:#17263B;--ink:#EAF0FA;--mute:#9FB0C9;--line:#2A3D5A;--green:#7FB7FF;--onGreen:#0F1A2B;--red:#FF8A5C;--gold:#F5C451;--soft:#1E3250;--btnText:#0F1A2B}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 "Avenir Next","Segoe UI",system-ui,sans-serif}
+main{max-width:560px;margin:0 auto;padding:20px 18px 48px}
+h1{font:800 30px/1.1 "Avenir Next","Segoe UI",system-ui,sans-serif;margin:18px 0 8px;color:var(--green);letter-spacing:-.02em}
+h2{font-size:19px;margin:24px 0 8px}
+p{margin:0 0 12px}
+.brand{font-weight:700;letter-spacing:.14em;font-size:13px}
+.mute{color:var(--mute);font-size:14px}
+.steps{display:flex;gap:6px;margin:14px 0 0}
+.steps div{flex:1;font-size:12px;color:var(--mute);border-top:4px solid var(--line);padding-top:5px}
+.steps .on{border-color:var(--red);color:var(--ink);font-weight:700}
+.steps .done{border-color:var(--green)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:9px 15px;font:inherit;font-size:15px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--green);color:var(--onGreen);border-color:var(--green)}
+.btn{display:block;width:100%;border:0;border-radius:12px;background:var(--red);color:var(--btnText,#fff);font:inherit;font-weight:700;padding:15px;margin-top:22px;cursor:pointer}
+.btn.alt{background:transparent;color:var(--green);border:1.5px solid var(--green)}
+.btn[disabled]{opacity:.45;cursor:default}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:14px}
+.row{display:flex;gap:12px;align-items:center}
+.avatar{flex:none;width:54px;height:54px;border-radius:50%;background:var(--gold);color:#1B2B26;display:grid;place-items:center;font-weight:800;font-size:20px}
+.badge{display:inline-block;background:var(--soft);color:var(--green);border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700;margin-right:6px}
+.day{border-left:4px solid var(--gold);padding:2px 0 2px 14px;margin:14px 0}
+.day b{display:block}
+.check{display:flex;gap:10px;margin:10px 0;font-size:15px}
+.check span:first-child{flex:none;width:22px;height:22px;border-radius:50%;background:var(--green);color:var(--onGreen);display:grid;place-items:center;font-size:13px;font-weight:800}
+.load{text-align:center;padding:60px 0}
+.dot{display:inline-block;width:10px;height:10px;margin:0 3px;border-radius:50%;background:var(--red);animation:b 1s infinite}
+.dot:nth-child(2){animation-delay:.15s}.dot:nth-child(3){animation-delay:.3s}
+@keyframes b{50%{transform:translateY(-8px);opacity:.4}}
+@media (prefers-reduced-motion:reduce){.dot{animation:none}}
+.skins{display:flex;gap:10px;margin:14px 0 0}.sk{width:28px;height:28px;border-radius:50%;border:3px solid var(--line);cursor:pointer;padding:0}.sk[aria-pressed="true"]{border-color:var(--ink)}.rad{margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.eco{color:var(--green);font-size:14px;margin-top:4px}.pts{padding-left:18px;margin:8px 0 0}.pts li{margin:6px 0}.bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden;margin-top:8px}.bar i{display:block;height:100%;background:var(--gold)}select{font:inherit;padding:10px 12px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);margin-top:4px}
+.flag{display:inline-block;border-radius:6px;padding:2px 8px;font-size:12px;font-weight:700;margin:6px 6px 0 0}.flag.ok{background:var(--soft);color:var(--green)}.flag.warn{background:var(--red);color:var(--btnText,#fff)}.flag.fest{background:var(--gold);color:#1B2B26}.flag.next{border:1px solid var(--line);color:var(--mute)}.st{display:block;width:100%;text-align:left;font:inherit;color:inherit;cursor:pointer}.st span{display:block;margin-top:2px}
+.note{font-size:12px;color:var(--mute);margin-top:28px;border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+var DATA={"states":[{"id":"rajasthan","name":"Rajasthan","tagline":"Forts, crafts and desert nights","note":"Best from October to March; summers are very hot."},{"id":"himachal","name":"Himachal Pradesh","tagline":"Mountain valleys, monasteries and orchards","note":"Best March to June and October to November; Spiti roads close in winter."},{"id":"meghalaya","name":"Meghalaya","tagline":"Living root bridges, waterfalls and Khasi villages","note":"Best October to April; heavy rain from June to September."},{"id":"nagaland","name":"Nagaland","tagline":"Tribal heritage, festivals and hill villages","note":"Best October to April. Check permit rules (Inner Line Permit) before you travel."}],"guides":[{"id":"meera","ev":"Electric car","tip":"Bring a hat; the kiln yard is sunny and the paint dries fast.","name":"Meera Kumawat","place":"Kripal Kumbh village, Jaipur","tags":["craft","village","food"],"lang":"Hindi, English","rate":2200,"yrs":9,"blurb":"Third-generation blue pottery maker. Hosts small groups in her family workshop.","stops":["Hand-paint a blue pottery tile in her workshop","Lunch with her family: dal baati churma from a wood stove","Walk the kiln lanes at golden hour"],"ref":"Reference call: Jaipur Blue Pottery Kala Samiti","vouch":"Vouched by the village sarpanch","state":"rajasthan","region":"Jaipur & craft villages"},{"id":"imran","ev":"E-rickshaw","tip":"Wear clothes you do not mind staining with indigo.","name":"Imran Chhipa","place":"Bagru, near Jaipur","tags":["craft","food","village"],"lang":"Hindi, English, Urdu","rate":1800,"yrs":12,"blurb":"Block-printer whose family has used natural dyes for generations.","stops":["Carve and stamp your own indigo and clay print","Wash printed cloth in the riverbed with the artisans","Chai and kachori at the old bazaar"],"ref":"Reference call: Bagru printers' collective","vouch":"Vouched by two neighbouring workshop owners","state":"rajasthan","region":"Jaipur & craft villages"},{"id":"bhanwar","ev":"Electric scooter and e-rickshaw","tip":"Old-city lanes are narrow; comfortable shoes beat style.","name":"Bhanwar Singh Rathore","place":"Old city, Jodhpur","tags":["heritage","photo","food"],"lang":"Hindi, English, French","rate":2500,"yrs":15,"blurb":"Grew up inside the blue city walls and knows every rooftop and lane.","stops":["Sunrise from a private rooftop above the blue lanes","Spice market and makhaniya lassi stop","Mehrangarh at the quiet hour, away from tour buses"],"ref":"Reference call: Jodhpur guides' association","vouch":"Vouched by a heritage-haveli owner","state":"rajasthan","region":"Jodhpur old city"},{"id":"sunita","ev":"Electric SUV","tip":"Dawn is cold in winter; carry a light shawl.","name":"Sunita Bishnoi","place":"Bishnoi villages, Jodhpur","tags":["village","desert","craft"],"lang":"Hindi, Marwari, some English","rate":2000,"yrs":7,"blurb":"Takes guests through villages where wildlife and people live side by side.","stops":["Jeep trail to spot blackbuck and chinkara at dawn","Opium-free tea ritual and a home-cooked meal","Dhurrie weaving with village women"],"ref":"Reference call: Bishnoi women's SHG","vouch":"Vouched by the Khejarli village committee","state":"rajasthan","region":"Bishnoi villages"},{"id":"dilip","ev":"Electric SUV to the dunes","tip":"Carry a torch and a warm layer; desert nights drop fast.","name":"Dilip Meghwal","place":"Khuri dunes, Jaisalmer","tags":["desert","photo","food"],"lang":"Hindi, English","rate":3200,"yrs":11,"blurb":"Camel-herder turned guide. Runs small, quiet camps away from the loud tourist dunes.","stops":["Camel walk to quieter dunes before sunset","Folk musicians around the fire, dinner on the sand","Stargazing with a local who names the constellations"],"ref":"Reference call: Khuri homestay collective","vouch":"Vouched by the camp-owners' union","state":"rajasthan","region":"Khuri dunes"},{"id":"kavita","ev":"E-rickshaw","tip":"Visit the stepwell at opening time for the best light.","name":"Kavita Hada","place":"Bundi","tags":["heritage","photo","village"],"lang":"Hindi, English","rate":1900,"yrs":6,"blurb":"Local historian guiding visitors through Bundi's stepwells and painted palaces.","stops":["Raniji ki Baori stepwell before the crowds","Faded Chitrashala murals with a restorer","Evening at Nawal Sagar with local snacks"],"ref":"Reference call: Bundi heritage trust","vouch":"Vouched by the Hada family elders","state":"rajasthan","region":"Bundi"},{"id":"tenzin","state":"himachal","region":"Spiti valley","name":"Tenzin Dolma","place":"Kaza, Spiti","tags":["trek","culture","village","photo"],"lang":"Hindi, English, Bhoti","rate":2700,"yrs":8,"blurb":"Grew up in Spiti and guides small groups between monasteries and high villages.","stops":["Morning prayers at Key Monastery","Homestay lunch in Langza with a fossil walk","Stargazing outside the village after dinner"],"ref":"Reference call: Spiti homestay association","vouch":"Vouched by the Kaza monastery committee","ev":"Electric SUV with planned charging stops","tip":"Carry warm layers; even summer nights are cold at altitude."},{"id":"rakesh","state":"himachal","region":"Kullu valley","name":"Rakesh Thakur","place":"Naggar, Kullu","tags":["craft","food","village","trek"],"lang":"Hindi, English","rate":2100,"yrs":10,"blurb":"Orchard family from Naggar who connects guests to weavers and apple farms.","stops":["Visit a Kullu shawl weaver at their loom","Walk Naggar Castle and the Roerich gallery","Siddu and river-trout lunch at an orchard home"],"ref":"Reference call: Kullu weavers' cooperative","vouch":"Vouched by two Naggar homestay owners","ev":"Electric car","tip":"Start early; valley roads get busy by late morning."},{"id":"neha","state":"himachal","region":"Dharamshala & Kangra","name":"Neha Katoch","place":"Dharamshala, Kangra","tags":["culture","heritage","food","photo"],"lang":"Hindi, English, Tibetan","rate":2300,"yrs":7,"blurb":"Local guide who works with the Tibetan community and Kangra tea growers.","stops":["Prayer-flag walk and monastery visit in McLeod Ganj","Tea estate walk in Palampur","Momo and thukpa dinner with a Tibetan family"],"ref":"Reference call: Dharamshala guides' society","vouch":"Vouched by a Tibetan community centre","ev":"Electric car","tip":"Dress modestly and be quiet inside monasteries."},{"id":"daiahun","state":"meghalaya","region":"Sohra & root bridges","name":"Daiahun Lyngdoh","place":"Sohra, East Khasi Hills","tags":["trek","village","culture","food"],"lang":"English, Khasi, Hindi","rate":2200,"yrs":9,"blurb":"Khasi guide who walks guests to living root bridges his family helped tend.","stops":["Trek to the double-decker living root bridge near Nongriat","Natural-pool stop on the trail","Jadoh and doh-khlieh lunch in a Khasi village kitchen"],"ref":"Reference call: Sohra village council","vouch":"Vouched by the Nongriat village headman","ev":"Electric car","tip":"Wear shoes with grip; the steps are steep and wet."},{"id":"ibadaka","state":"meghalaya","region":"Dawki & Mawlynnong","name":"Ibadaka Nongrum","place":"Mawlynnong, East Khasi Hills","tags":["village","photo","food"],"lang":"English, Khasi, Hindi","rate":1900,"yrs":6,"blurb":"Village host who runs quiet morning walks before the day trippers arrive.","stops":["Morning walk through Mawlynnong gardens and its root bridge","Boat ride on the clear Umngot river at Dawki","Evening tea and snacks with a Khasi family"],"ref":"Reference call: Mawlynnong village committee","vouch":"Vouched by two homestay hosts","ev":"Electric car","tip":"Keep your phone in a dry bag near the river."},{"id":"phi","state":"meghalaya","region":"Shillong & Smit","name":"Phibaiaid Marbaniang","place":"Shillong, East Khasi Hills","tags":["culture","food","heritage"],"lang":"English, Khasi, Hindi","rate":2000,"yrs":8,"blurb":"Shillong native who shows the city's music scene and indigenous culture.","stops":["Don Bosco Museum of indigenous cultures","Police Bazar street-food walk","Live-music evening at a local venue"],"ref":"Reference call: Shillong tourism guides' union","vouch":"Vouched by a Khasi cultural society","ev":"Electric car","tip":"Shillong is hilly and can turn rainy fast; carry a light raincoat."},{"id":"neingulo","state":"nagaland","region":"Kohima & Khonoma","name":"Neingulo Kire","place":"Khonoma, Kohima","tags":["village","heritage","culture","trek"],"lang":"English, Hindi, Angami","rate":2200,"yrs":9,"blurb":"Angami guide from Khonoma, a village known for conservation and old stone gateways.","stops":["Walk the terraced fields and stone gateways of Khonoma","Kohima War Cemetery and the local market","Smoked pork with bamboo shoot at an Angami home"],"ref":"Reference call: Khonoma village council","vouch":"Vouched by the Khonoma tourism society","ev":"Electric car","tip":"Ask before photographing people or homes."},{"id":"wangnao","state":"nagaland","region":"Mon & Longwa","name":"Wangnao Konyak","place":"Mon, Nagaland","tags":["culture","village","photo"],"lang":"English, Hindi, Konyak","rate":2400,"yrs":7,"blurb":"Konyak guide who introduces visitors to elders and village life near the Myanmar border.","stops":["Meet Konyak elders and hear village stories","Walk through Longwa on the India-Myanmar border","Home-cooked meal with a Konyak family"],"ref":"Reference call: Mon district guides' society","vouch":"Vouched by a Longwa village elder","ev":"Electric SUV with planned charging stops","tip":"Roads are long; plan for slow travel days."}],"regions":[{"state":"rajasthan","region":"Jaipur & craft villages","peak":[10,11,12,1,2,3],"crowd":5,"buzz":8,"tag":"Crafts","key":"craft","note":"Blue pottery and block-print workshops run full schedules in cooler months.","off":"Very hot from April to June."},{"state":"rajasthan","region":"Jodhpur old city","peak":[10,11,12,1,2,3],"crowd":7,"buzz":9,"tag":"Heritage","key":"heritage","note":"Rooftop sunrises and lane walks are best in clear winter light.","off":"Summer heat is intense."},{"state":"rajasthan","region":"Bishnoi villages","peak":[10,11,12,1,2],"crowd":2,"buzz":7,"tag":"Village life","key":"village","note":"Dawn wildlife trails with local hosts and few other visitors.","off":"Hot summers make wildlife harder to spot."},{"state":"rajasthan","region":"Khuri dunes","peak":[11,12,1,2],"crowd":6,"buzz":8,"tag":"Desert","key":"desert","note":"Cool nights suit camp stays and stargazing.","off":"Summer days are extremely hot."},{"state":"rajasthan","region":"Bundi","peak":[10,11,12,1,2,3],"crowd":2,"buzz":6,"tag":"Heritage","key":"heritage","note":"Stepwells and painted palaces with almost no queues.","off":"Summer is very hot."},{"state":"himachal","region":"Kullu valley","peak":[3,4,5,6,10,11],"crowd":7,"buzz":9,"tag":"Crafts","key":"craft","note":"Weavers, orchards and river walks in a classic mountain valley.","off":"Winter snow and monsoon rain can close roads."},{"state":"himachal","region":"Spiti valley","peak":[5,6,7,8,9,10],"crowd":3,"buzz":8,"tag":"Trails & nature","key":"trek","note":"High-altitude villages, monasteries and star-filled skies.","off":"Roads over the passes close in winter and snow blocks the valley."},{"state":"himachal","region":"Dharamshala & Kangra","peak":[3,4,5,9,10,11],"crowd":6,"buzz":7,"tag":"Culture","key":"culture","note":"Tibetan culture, tea estates and mountain views.","off":"Monsoon is very wet and winter is cold."},{"state":"meghalaya","region":"Sohra & root bridges","peak":[10,11,12,1,2,3,4],"crowd":6,"buzz":9,"tag":"Trails & nature","key":"trek","note":"Living root bridges and waterfall trails after the rains.","off":"Monsoon brings extremely heavy rain and slippery trails."},{"state":"meghalaya","region":"Dawki & Mawlynnong","peak":[11,12,1,2,3,4],"crowd":5,"buzz":8,"tag":"Village life","key":"village","note":"Clear river, gardens and quiet village mornings.","off":"Monsoon swells the river and can stop boat rides."},{"state":"meghalaya","region":"Shillong & Smit","peak":[10,11,12,1,2,3,4],"crowd":6,"buzz":7,"tag":"Culture","key":"culture","note":"Music, cafes and indigenous culture in the hill capital.","off":"Monsoon is very wet."},{"state":"nagaland","region":"Kohima & Khonoma","peak":[10,11,12,1,2,3,4],"crowd":3,"buzz":8,"tag":"Culture","key":"culture","note":"Naga heritage, village trails and the best festival season.","off":"Monsoon rain can cause landslides on hill roads."},{"state":"nagaland","region":"Mon & Longwa","peak":[10,11,12,1,2,3,4],"crowd":1,"buzz":7,"tag":"Culture","key":"culture","note":"Konyak villages and border life, with very few visitors.","off":"Monsoon makes village roads difficult."}],"festivals":[{"state":"rajasthan","name":"Marwar Festival","months":[10],"region":"Jodhpur old city","where":"Jodhpur","note":"Folk music and dance celebrating Marwar heritage."},{"state":"rajasthan","name":"Pushkar Camel Fair","months":[11],"region":"","where":"Pushkar","note":"Camel and livestock fair with folk performances."},{"state":"rajasthan","name":"Bundi Utsav","months":[11,12],"region":"Bundi","where":"Bundi","note":"Music, crafts and processions in the old town."},{"state":"rajasthan","name":"Jaipur Literature Festival","months":[1],"region":"Jaipur & craft villages","where":"Jaipur","note":"Large books and ideas festival."},{"state":"rajasthan","name":"Desert Festival","months":[2],"region":"Khuri dunes","where":"Jaisalmer","note":"Folk music, turbans and camel events."},{"state":"rajasthan","name":"Khejarli Mela","months":[9],"region":"Bishnoi villages","where":"Khejarli village","note":"Remembers the Bishnoi tree-protection sacrifice."},{"state":"rajasthan","name":"Gangaur","months":[3,4],"region":"Jaipur & craft villages","where":"Jaipur","note":"Women's festival with colourful processions."},{"state":"himachal","name":"Kullu Dussehra","months":[10],"region":"Kullu valley","where":"Kullu","note":"Hundreds of village deities gather in a week-long festival."},{"state":"himachal","name":"Winter Carnival","months":[1,2],"region":"Kullu valley","where":"Manali","note":"Snow sports, music and local food."},{"state":"himachal","name":"Losar","months":[2],"region":"Spiti valley","where":"Spiti monasteries","note":"Tibetan New Year celebrations. Winter access is hard."},{"state":"himachal","name":"Losar (Tibetan New Year)","months":[2],"region":"Dharamshala & Kangra","where":"McLeod Ganj","note":"Prayers, dances and community meals."},{"state":"himachal","name":"Dharamshala Film Festival","months":[10,11],"region":"Dharamshala & Kangra","where":"Dharamshala","note":"Independent film festival."},{"state":"himachal","name":"Minjar Fair","months":[7,8],"region":"","where":"Chamba","note":"Week-long fair with processions and folk dance."},{"state":"meghalaya","name":"Cherry Blossom Festival","months":[11],"region":"Shillong & Smit","where":"Shillong","note":"Music, food and pink blossoms."},{"state":"meghalaya","name":"Nongkrem Dance","months":[11],"region":"Shillong & Smit","where":"Smit","note":"Khasi harvest and thanksgiving dance."},{"state":"meghalaya","name":"Wangala","months":[11],"region":"","where":"Garo Hills","note":"Garo harvest festival of the hundred drums."},{"state":"nagaland","name":"Hornbill Festival","months":[12],"region":"Kohima & Khonoma","where":"Kisama, near Kohima","note":"Nagaland's biggest festival, with all tribes together."},{"state":"nagaland","name":"Sekrenyi","months":[2],"region":"Kohima & Khonoma","where":"Kohima","note":"Angami purification festival."},{"state":"nagaland","name":"Aoleang Monyu","months":[4],"region":"Mon & Longwa","where":"Mon district","note":"Konyak spring festival."}]};
+var GUIDES=[];
+var INTERESTS=[["craft","Crafts"],["food","Food"],["heritage","Heritage"],["photo","Photography"],["desert","Desert & nature"],["village","Village life"],["trek","Trails & nature"],["culture","Festivals & culture"]];
+function curState(){return DATA.states.filter(function(x){return x.id===s.state})[0]||{}}
+function interestsFor(){var u={};GUIDES.forEach(function(g){g.tags.forEach(function(k){u[k]=1})});return INTERESTS.filter(function(x){return u[x[0]]})}
+function REGS(){return DATA.regions.filter(function(x){return x.state===s.state})}
+function regRec(n){return DATA.regions.filter(function(x){return x.region===n})[0]}
+function festsIn(n,m){return DATA.festivals.filter(function(f){return f.region===n&&f.months.indexOf(m)>-1})}
+function regSeason(n){var r=regRec(n);return !!(r&&r.peak.indexOf(s.rm)>-1)}
+var BUDGETS=[["2000","Under ₹2,500/day"],["4000","₹2,500–5,000/day"],["7000","₹5,000+/day"]];
+var PACES=["Slow","Balanced","Packed"];
+var s={step:"state",state:null,interests:[],budget:"4000",pace:"Balanced",days:3,res:null,err:"",vibe:"",skin:"classic",radar:null,src:"",rm:new Date().getMonth()+1,rf:"",rd:null,focus:""};
+var app=document.getElementById("app");
+function esc(t){return String(t==null?"":t).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function inr(n){return "₹"+Number(n).toLocaleString("en-IN")}
+function head(i){return head0(i)+skinRow()}
+function head0(i){
+  var L=["Tell us","AI match","Local verify","Experience"];
+  return '<div class="brand">BANJARA</div><div class="steps">'+L.map(function(l,k){return '<div class="'+(k<i?"done":k==i?"on":"")+'">'+l+'</div>'}).join("")+'</div>';
+}
+function chips(items,sel,attr){
+  return '<div class="chips">'+items.map(function(it){var v=Array.isArray(it)?it[0]:it,l=Array.isArray(it)?it[1]:it;
+    return '<button class="chip" '+attr+'="'+esc(v)+'" aria-pressed="'+(sel.indexOf(v)>-1)+'">'+esc(l)+'</button>'}).join("")+'</div>';
+}
+function render(){
+  if(s.step==="state"){renderState();return}
+  if(s.step==="radar"){renderRadar();return}
+  if(s.step==0){
+    app.innerHTML=head(0)+'<h1>'+esc(curState().name)+', through locals.</h1><p class="mute">'+esc(curState().note)+' Every ride is electric. Tell us what you want and we will find your guide.</p><button class="chip" data-go="state">Change state</button>'+
+    '<div id="radar">'+radarHtml()+'</div><h2>Trip vibe</h2><p class="mute">Optional. Picks interests for you</p>'+chips(VIBES,[s.vibe],"data-v")+'<h2>What pulls you in?</h2><p class="mute">Pick any</p>'+chips(interestsFor(),s.interests,"data-i")+
+    '<h2>Budget</h2>'+chips(BUDGETS,[s.budget],"data-b")+
+    '<h2>Pace</h2>'+chips(PACES,[s.pace],"data-p")+
+    '<h2>Days</h2>'+chips([["2","2"],["3","3"],["4","4"],["5","5"]],[String(s.days)],"data-d")+
+    '<h2>When are you going?</h2>'+monthSel("tm")+'<button class="btn" id="go"'+(s.interests.length?"":" disabled")+'>Find my journey</button>'+
+    '<div class="note">Prototype. Guides shown are sample profiles for testing, not real people.</div>';
+  } else if(s.step==1){
+    app.innerHTML=head(1)+'<div class="load" role="status"><span class="dot"></span><span class="dot"></span><span class="dot"></span><p class="mute">Matching interests, budget and pace with local guides…</p></div>';
+  } else if(s.step==2){
+    var r=s.res,g=r.guide;
+    app.innerHTML=head(2)+'<h1>'+esc(r.headline)+'</h1><p>'+esc(r.why)+'</p>'+
+    '<p class="mute">'+(s.src==="ai"?"Matched by Claude AI.":"Matched with simple rules.")+'</p><div>'+flagsHtml(g.region,s.rm)+'</div>'+
+    '<div class="card"><div class="row"><div class="avatar">'+esc(g.name.charAt(0))+'</div><div><b>'+esc(g.name)+'</b><br><span class="mute">'+esc(g.place)+' · '+esc(g.lang)+'</span></div></div>'+
+    '<p style="margin-top:12px">'+esc(g.blurb)+'</p><span class="badge">Verified</span><span class="badge">'+g.yrs+' yrs hosting</span>'+
+    '<h2 style="font-size:16px">3-step trust check</h2>'+
+    '<div class="check"><span>✓</span><span>ID verified in person</span></div>'+
+    '<div class="check"><span>✓</span><span>'+esc(g.ref)+'</span></div>'+
+    '<div class="check"><span>✓</span><span>'+esc(g.vouch)+'</span></div></div>'+
+    ecoHtml(g,r.days.length)+'<h2>Your '+r.days.length+'-day plan</h2>'+r.days.map(function(d,k){return dayHtml(d,k,g)}).join("")+
+    '<div class="card"><div class="row" style="justify-content:space-between"><span>Guide fee × '+r.days.length+' days</span><b>'+inr(g.rate*r.days.length)+'</b></div><p class="mute" style="margin:6px 0 0">Banjara commission is built into the fee. Stay and travel are extra.</p></div>'+
+    '<button class="btn" id="book">Request to book '+esc(g.name.split(" ")[0])+'</button><button class="btn alt" id="redo">Change preferences</button>';
+  } else {
+    var g2=s.res.guide;
+    app.innerHTML=head(3)+'<h1>Request sent.</h1><p>'+esc(g2.name)+' will confirm within 24 hours. You will get a call from a Banjara team member to settle details before anything is charged.</p>'+
+    '<div class="card"><b>After your trip</b><p class="mute" style="margin:6px 0 0">You will be asked to review. Every completed trip makes the next recommendation smarter.</p></div>'+
+    '<button class="btn alt" id="redo">Plan another journey</button><div class="note">Prototype: no booking or payment was made.</div>';
+  }
+  window.scrollTo(0,0);
+}
+function label(tag){return INTERESTS.filter(function(x){return x[0]===tag})[0][1].toLowerCase()}
+function score(g){
+  var hit=g.tags.filter(function(x){return s.interests.indexOf(x)>-1});
+  var cap={"2000":2000,"4000":2500,"7000":4000}[s.budget];
+  var sc=hit.length*3+(g.rate<=cap?2:-2)+(g.yrs>=10?0.5:0)+(g.id===s.focus?5:0)+(regSeason(g.region)?1:-1)+(festsIn(g.region,s.rm).length?1:0);
+  return {g:g,hit:hit,sc:sc};
+}
+var KM={"Slow":30,"Balanced":50,"Packed":80};
+function build(){
+  var best=GUIDES.map(score).sort(function(a,b){return b.sc-a.sc})[0],g=best.g,n=g.stops.length,first=g.name.split(" ")[0],days=[],i;
+  for(i=0;i<s.days;i++){
+    var a=g.stops[i%n],b=g.stops[(i+1)%n],c=g.stops[(i+2)%n],d;
+    if(i<n){d={title:a.split(" ").slice(0,5).join(" "),morning:a+".",
+      afternoon:s.pace==="Slow"?"Rest, read or wander at your own pace.":b+".",
+      evening:s.pace==="Packed"?c+".":"Dinner with "+first+" or their family, with local dishes."}}
+    else{d={title:"Open day with "+first,morning:"Slow start with chai. Tell "+first+" what you loved most so far.",
+      afternoon:"Return to a favourite stop or try something "+first+" suggests.",evening:"Sunset somewhere only locals go."}}
+    d.ride=KM[s.pace]+" km by "+g.ev.toLowerCase();
+    if(i===0)d.tip=g.tip;
+    days.push(d);
+  }
+  var names=best.hit.map(label),why;
+  if(names.length>1)why="You picked "+names.slice(0,-1).join(", ")+" and "+names[names.length-1]+". "+first+" offers all of it, within your budget.";
+  else if(names.length===1)why="You picked "+names[0]+". "+first+" is a local who lives it every day.";
+  else why="Closest local fit for your budget and pace.";
+  return {guide:g,headline:"Meet "+first+" in "+g.place.split(",")[0],why:why,days:days};
+}
+function dayHtml(d,k,g){
+  var parts=[["Morning",d.morning||d.plan],["Afternoon",d.afternoon],["Evening",d.evening]].filter(function(p){return p[1]});
+  var ride=d.ride||KM[s.pace]+" km by "+g.ev.toLowerCase();
+  return '<div class="day"><b>Day '+(k+1)+': '+esc(d.title)+'</b>'+parts.map(function(p){return '<div><span class="mute">'+p[0]+':</span> '+esc(p[1])+'</div>'}).join("")+'<div class="eco">🔋 Ride: '+esc(ride)+'</div>'+(d.tip?'<div class="mute">Local tip: '+esc(d.tip)+'</div>':'')+'</div>';
+}
+function ecoHtml(g,n){
+  var km=KM[s.pace]*n,saved=Math.round(km*(0.15-0.09)*10)/10,f=g.name.split(" ")[0];
+  return '<div class="card"><b>🌱 Eco ride, by design</b><ul class="pts"><li>'+esc(f)+' drives an <b>'+esc(g.ev.toLowerCase())+'</b>: no tailpipe fumes in lanes, villages or wildlife areas.</li><li>Quiet rides, so you hear the place instead of an engine.</li><li>Charging is planned around lunch or tea stops, never in the middle of a sight.</li><li>Your driver and guide are local, so the money stays here.</li></ul><p class="mute" style="margin:8px 0 0;font-size:13px">About '+km+' km planned, roughly '+saved+' kg CO₂ less than a petrol car. Rough estimate using 0.15 kg/km petrol vs 0.09 kg/km electric on the India grid. Vehicles shown are sample placeholders.</p></div>';
+}
+async function match(){
+  s.step=1;s.err="";render();
+  var out=null;
+  try{
+    var ctl=new AbortController(),tm=setTimeout(function(){ctl.abort()},25000);
+    var r=await fetch("/api/match",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({interests:s.interests,budget:s.budget,pace:s.pace,days:s.days,vibe:s.vibe,focus:s.focus,state:s.state,month:s.rm}),signal:ctl.signal});
+    clearTimeout(tm);
+    if(r.ok){var j=await r.json();var g=GUIDES.filter(function(x){return x.id===j.guideId})[0];
+      if(g&&Array.isArray(j.days)&&j.days.length)out={guide:g,headline:j.headline||"Meet "+g.name,why:j.why||"",days:j.days.slice(0,s.days)}}
+  }catch(e){}
+  if(out)s.src="ai";else{out=build();s.src="rules"}
+  s.res=out;s.step=2;render();
+}
+app.addEventListener("click",function(e){
+  var t=e.target.closest("button");if(!t)return;
+  if(t.dataset.i){var k=s.interests.indexOf(t.dataset.i);k>-1?s.interests.splice(k,1):s.interests.push(t.dataset.i);render()}
+  else if(t.dataset.go){s.step={radar:"radar",state:"state"}[t.dataset.go]||0;render()}
+  else if(t.dataset.st){setState(t.dataset.st)}
+  else if(t.dataset.rf){s.rf=t.dataset.rf==="all"?"":t.dataset.rf;renderRadar()}
+  else if(t.dataset.plan){s.focus=t.dataset.plan;s.interests=[t.dataset.pk];s.vibe="";s.step=0;render()}
+  else if(t.dataset.v){pickVibe(t.dataset.v)}
+  else if(t.dataset.k){setSkin(t.dataset.k)}
+  else if(t.dataset.b){s.budget=t.dataset.b;render()}
+  else if(t.dataset.p){s.pace=t.dataset.p;render()}
+  else if(t.dataset.d){s.days=+t.dataset.d;render()}
+  else if(t.id=="go"&&s.interests.length)match();
+  else if(t.id=="book"){s.step=3;render()}
+  else if(t.id=="redo"){s.step=0;render()}
+});
+var VIBES=[["royal","Royal & heritage"],["spiritual","Spiritual & slow"],["adventure","Adventure"],["craft","Culture & craft"],["foodie","Foodie trail"]];
+var VIBE_SET={royal:{i:["heritage","photo"]},spiritual:{i:["village","heritage","culture"],p:"Slow"},adventure:{i:["desert","trek","photo"],p:"Packed"},craft:{i:["craft","village"]},foodie:{i:["food","village"]}};
+var SKINS=[["classic","#1F4A3A","Classic"],["desert","#C2410C","Desert"],["royal","#7B1E3A","Royal"],["midnight","#0F1A2B","Midnight"]];
+function skinRow(){return '<div class="skins" role="group" aria-label="Colour theme">'+SKINS.map(function(k){return '<button class="sk" data-k="'+k[0]+'" aria-label="'+k[2]+' theme" aria-pressed="'+(s.skin===k[0])+'" style="background:'+k[1]+'"></button>'}).join("")+'</div>'}
+function setSkin(k){s.skin=k;if(k==="classic")document.documentElement.removeAttribute("data-skin");else document.documentElement.setAttribute("data-skin",k);render()}
+function pickVibe(v){var d=VIBE_SET[v];s.vibe=(s.vibe===v?"":v);if(s.vibe){var ok=interestsFor().map(function(x){return x[0]});var pick=d.i.filter(function(k){return ok.indexOf(k)>-1});if(pick.length)s.interests=pick;if(d.p)s.pace=d.p}render()}
+function radarHtml(){var it=((s.radar&&s.radar.items)||[]).slice(0,3);if(!it.length)return "";
+  return '<div class="card"><b>Trending in '+esc(curState().name)+' this month</b>'+it.map(function(x){return '<div class="rad"><span class="badge">'+esc(x.tag)+'</span><b>'+esc(x.region)+'</b><br><span class="mute">'+esc(x.why)+'</span><div>'+flagsHtml(x.region,s.rm)+'</div></div>'}).join("")+'<p class="mute" style="margin:8px 0 0;font-size:12px">'+(s.radar.source==="workflow"?"Scored by Render Workflows":"Sample signals")+'</p><button class="btn alt" data-go="radar" style="margin-top:12px;padding:11px">Open full radar</button></div>'}
+var MON=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+function monthSel(id){return '<select id="'+id+'">'+MON.map(function(m,i){return '<option value="'+(i+1)+'"'+(i+1===s.rm?" selected":"")+'>'+m+'</option>'}).join("")+'</select>'}
+function flagsHtml(name,m){
+  var r=regRec(name);if(!r)return "";
+  var inS=r.peak.indexOf(m)>-1,nx=m%12+1,f=festsIn(name,m),fn=festsIn(name,nx);
+  return '<span class="flag '+(inS?"ok":"warn")+'">'+(inS?"🌤 In season":"⚠ Off-season")+'</span>'+
+    f.map(function(x){return '<span class="flag fest">🎉 '+esc(x.name)+'</span>'}).join("")+
+    fn.map(function(x){return '<span class="flag next">Next month: '+esc(x.name)+'</span>'}).join("")+
+    (inS?"":'<div class="mute" style="font-size:13px;margin-top:4px">'+esc(r.off)+'</div>');
+}
+function localRadar(m){return REGS().map(function(g){
+  var inS=g.peak.indexOf(m)>-1,se=inS?10:4,fe=festsIn(g.region,m).length?1:0,c=g.crowd<=3?"light":g.crowd<=6?"moderate":"heavy";
+  return {region:g.region,tag:g.tag,key:g.key,guide:guideFor(g.region),season:se,buzz:g.buzz,crowd:g.crowd,
+    score:Math.min(10,Math.round((0.4*se+0.3*g.buzz+0.3*(10-g.crowd)+fe)*10)/10),why:g.note+" "+(inS?"In season":"Off-season")+", "+c+" crowds."}}).sort(function(a,b){return b.score-a.score})}
+function guideFor(region){var g=GUIDES.filter(function(x){return x.region===region})[0];return g?g.id:""}
+async function loadRadar(){
+  if(!s.state)return;
+  var m=s.rm,d=null;
+  try{var r=await fetch("/api/radar?month="+m+"&state="+s.state);if(r.ok){var j=await r.json();if(j&&j.items&&j.items.length&&j.items[0].season!==undefined&&j.state===s.state)d=j}}catch(e){}
+  if(!d)d={source:"local",state:s.state,items:localRadar(m)};
+  s.rd=d;s.radar=d;
+  var el=document.getElementById("radar");if(el)el.innerHTML=radarHtml();
+  if(s.step==="radar")renderRadar();
+}
+function festListHtml(){
+  var fs=DATA.festivals.filter(function(f){return f.state===s.state}).sort(function(a,b){return a.months[0]-b.months[0]});
+  return '<h2>Festival calendar</h2>'+fs.map(function(f){var now=f.months.indexOf(s.rm)>-1;
+    return '<div class="rad"><b>'+esc(f.name)+'</b> <span class="flag '+(now?"fest":"next")+'">'+(now?"🎉 This month: ":"")+f.months.map(function(i){return MON[i-1]}).join(", ")+'</span><br><span class="mute">'+esc(f.where)+'. '+esc(f.note)+'</span></div>'}).join("");
+}
+function renderRadar(){
+  var d=s.rd||{source:"local",items:localRadar(s.rm)},m=s.rm;
+  var items=d.items.filter(function(x){return !s.rf||(s.rf==="fest"?festsIn(x.region,m).length>0:x.key===s.rf)});
+  app.innerHTML=head(0)+'<h1>Signal Radar</h1><p class="mute">'+esc(curState().name)+': which spots fit this month, with season and festival flags.</p>'+
+  '<label class="mute" for="mon">Month</label><br>'+monthSel("mon")+
+  '<h2 style="font-size:16px">Filter</h2>'+chips([["all","All"],["fest","🎉 Festivals"]].concat(interestsFor()),[s.rf||"all"],"data-rf")+
+  (items.map(function(x,k){return '<div class="card"><div class="row" style="justify-content:space-between"><div><span class="badge">'+esc(x.tag)+'</span><b>#'+(k+1)+' '+esc(x.region)+'</b></div><b>'+x.score+'</b></div><div class="bar" role="img" aria-label="Score '+x.score+' out of 10"><i style="width:'+x.score*10+'%"></i></div><p class="mute" style="margin:8px 0">'+esc(x.why)+'</p><div>'+flagsHtml(x.region,m)+'</div><div class="mute" style="font-size:13px;margin-top:6px">Season '+x.season+'/10 · Buzz '+x.buzz+'/10 · Crowds '+x.crowd+'/10</div>'+(x.guide?'<button class="btn alt" style="margin-top:12px;padding:11px" data-plan="'+esc(x.guide)+'" data-pk="'+esc(x.key)+'">Plan a trip here</button>':'')+'</div>'}).join("")||'<p class="mute">Nothing matches that filter.</p>')+
+  festListHtml()+
+  '<div class="note">'+(d.source==="workflow"?"Scored by a Render Workflow run: one task per region, in parallel.":"Computed in your browser. Connect the Render Workflow to score on the server.")+' Signals and festival months are sample data; festival dates shift each year, so check before booking.</div><button class="btn alt" data-go="home">Back</button>';
+  window.scrollTo(0,0);
+}
+function setState(id){
+  s.state=id;GUIDES=DATA.guides.filter(function(g){return g.state===id});
+  s.interests=[];s.vibe="";s.focus="";s.res=null;s.rf="";s.rd=null;s.step=0;
+  s.radar={source:"local",state:id,items:localRadar(s.rm)};
+  render();loadRadar();
+}
+function renderState(){
+  app.innerHTML='<div class="brand">BANJARA</div>'+skinRow()+'<h1>Where to?</h1><p class="mute">Pick a state. Local guides, electric rides, and flags for the best season and festivals.</p>'+
+  DATA.states.map(function(x){return '<button class="card st" data-st="'+esc(x.id)+'"><b>'+esc(x.name)+'</b><span class="mute">'+esc(x.tagline)+'</span><span class="eco">'+esc(x.note)+'</span></button>'}).join("")+
+  '<div class="note">Prototype. Guides shown are sample profiles for testing, not real people.</div>';
+  window.scrollTo(0,0);
+}
+
+app.addEventListener("change",function(e){if(e.target.id==="mon"||e.target.id==="tm"){s.rm=+e.target.value;loadRadar()}});
+render();loadRadar();
+</script>
+</body>
+</html>
