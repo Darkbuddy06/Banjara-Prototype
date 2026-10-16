@@ -63,7 +63,7 @@ Respond with ONLY valid JSON (no markdown fences, no extra text), in exactly thi
 {"guideId":"<one of the candidate ids>","headline":"Meet <FirstName> in <Place>","why":"<1-2 sentence reason tied to the traveler's chosen interests>","days":[{"title":"<short day title>","morning":"<text>","afternoon":"<text>","evening":"<text>"}]}`;
 
     const r = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.0-flash:generateContent?key=${process.env.GEMINI_API_KEY}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
