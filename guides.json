@@ -1,0 +1,357 @@
+[
+  {
+    "id": "meera",
+    "ev": "Electric car",
+    "tip": "Bring a hat; the kiln yard is sunny and the paint dries fast.",
+    "name": "Meera Kumawat",
+    "place": "Kripal Kumbh village, Jaipur",
+    "tags": [
+      "craft",
+      "village",
+      "food"
+    ],
+    "lang": "Hindi, English",
+    "rate": 2200,
+    "yrs": 9,
+    "blurb": "Third-generation blue pottery maker. Hosts small groups in her family workshop.",
+    "stops": [
+      "Hand-paint a blue pottery tile in her workshop",
+      "Lunch with her family: dal baati churma from a wood stove",
+      "Walk the kiln lanes at golden hour"
+    ],
+    "ref": "Reference call: Jaipur Blue Pottery Kala Samiti",
+    "vouch": "Vouched by the village sarpanch",
+    "state": "rajasthan",
+    "region": "Jaipur & craft villages"
+  },
+  {
+    "id": "imran",
+    "ev": "E-rickshaw",
+    "tip": "Wear clothes you do not mind staining with indigo.",
+    "name": "Imran Chhipa",
+    "place": "Bagru, near Jaipur",
+    "tags": [
+      "craft",
+      "food",
+      "village"
+    ],
+    "lang": "Hindi, English, Urdu",
+    "rate": 1800,
+    "yrs": 12,
+    "blurb": "Block-printer whose family has used natural dyes for generations.",
+    "stops": [
+      "Carve and stamp your own indigo and clay print",
+      "Wash printed cloth in the riverbed with the artisans",
+      "Chai and kachori at the old bazaar"
+    ],
+    "ref": "Reference call: Bagru printers' collective",
+    "vouch": "Vouched by two neighbouring workshop owners",
+    "state": "rajasthan",
+    "region": "Jaipur & craft villages"
+  },
+  {
+    "id": "bhanwar",
+    "ev": "Electric scooter and e-rickshaw",
+    "tip": "Old-city lanes are narrow; comfortable shoes beat style.",
+    "name": "Bhanwar Singh Rathore",
+    "place": "Old city, Jodhpur",
+    "tags": [
+      "heritage",
+      "photo",
+      "food"
+    ],
+    "lang": "Hindi, English, French",
+    "rate": 2500,
+    "yrs": 15,
+    "blurb": "Grew up inside the blue city walls and knows every rooftop and lane.",
+    "stops": [
+      "Sunrise from a private rooftop above the blue lanes",
+      "Spice market and makhaniya lassi stop",
+      "Mehrangarh at the quiet hour, away from tour buses"
+    ],
+    "ref": "Reference call: Jodhpur guides' association",
+    "vouch": "Vouched by a heritage-haveli owner",
+    "state": "rajasthan",
+    "region": "Jodhpur old city"
+  },
+  {
+    "id": "sunita",
+    "ev": "Electric SUV",
+    "tip": "Dawn is cold in winter; carry a light shawl.",
+    "name": "Sunita Bishnoi",
+    "place": "Bishnoi villages, Jodhpur",
+    "tags": [
+      "village",
+      "desert",
+      "craft"
+    ],
+    "lang": "Hindi, Marwari, some English",
+    "rate": 2000,
+    "yrs": 7,
+    "blurb": "Takes guests through villages where wildlife and people live side by side.",
+    "stops": [
+      "Jeep trail to spot blackbuck and chinkara at dawn",
+      "Opium-free tea ritual and a home-cooked meal",
+      "Dhurrie weaving with village women"
+    ],
+    "ref": "Reference call: Bishnoi women's SHG",
+    "vouch": "Vouched by the Khejarli village committee",
+    "state": "rajasthan",
+    "region": "Bishnoi villages"
+  },
+  {
+    "id": "dilip",
+    "ev": "Electric SUV to the dunes",
+    "tip": "Carry a torch and a warm layer; desert nights drop fast.",
+    "name": "Dilip Meghwal",
+    "place": "Khuri dunes, Jaisalmer",
+    "tags": [
+      "desert",
+      "photo",
+      "food"
+    ],
+    "lang": "Hindi, English",
+    "rate": 3200,
+    "yrs": 11,
+    "blurb": "Camel-herder turned guide. Runs small, quiet camps away from the loud tourist dunes.",
+    "stops": [
+      "Camel walk to quieter dunes before sunset",
+      "Folk musicians around the fire, dinner on the sand",
+      "Stargazing with a local who names the constellations"
+    ],
+    "ref": "Reference call: Khuri homestay collective",
+    "vouch": "Vouched by the camp-owners' union",
+    "state": "rajasthan",
+    "region": "Khuri dunes"
+  },
+  {
+    "id": "kavita",
+    "ev": "E-rickshaw",
+    "tip": "Visit the stepwell at opening time for the best light.",
+    "name": "Kavita Hada",
+    "place": "Bundi",
+    "tags": [
+      "heritage",
+      "photo",
+      "village"
+    ],
+    "lang": "Hindi, English",
+    "rate": 1900,
+    "yrs": 6,
+    "blurb": "Local historian guiding visitors through Bundi's stepwells and painted palaces.",
+    "stops": [
+      "Raniji ki Baori stepwell before the crowds",
+      "Faded Chitrashala murals with a restorer",
+      "Evening at Nawal Sagar with local snacks"
+    ],
+    "ref": "Reference call: Bundi heritage trust",
+    "vouch": "Vouched by the Hada family elders",
+    "state": "rajasthan",
+    "region": "Bundi"
+  },
+  {
+    "id": "tenzin",
+    "state": "himachal",
+    "region": "Spiti valley",
+    "name": "Tenzin Dolma",
+    "place": "Kaza, Spiti",
+    "tags": [
+      "trek",
+      "culture",
+      "village",
+      "photo"
+    ],
+    "lang": "Hindi, English, Bhoti",
+    "rate": 2700,
+    "yrs": 8,
+    "blurb": "Grew up in Spiti and guides small groups between monasteries and high villages.",
+    "stops": [
+      "Morning prayers at Key Monastery",
+      "Homestay lunch in Langza with a fossil walk",
+      "Stargazing outside the village after dinner"
+    ],
+    "ref": "Reference call: Spiti homestay association",
+    "vouch": "Vouched by the Kaza monastery committee",
+    "ev": "Electric SUV with planned charging stops",
+    "tip": "Carry warm layers; even summer nights are cold at altitude."
+  },
+  {
+    "id": "rakesh",
+    "state": "himachal",
+    "region": "Kullu valley",
+    "name": "Rakesh Thakur",
+    "place": "Naggar, Kullu",
+    "tags": [
+      "craft",
+      "food",
+      "village",
+      "trek"
+    ],
+    "lang": "Hindi, English",
+    "rate": 2100,
+    "yrs": 10,
+    "blurb": "Orchard family from Naggar who connects guests to weavers and apple farms.",
+    "stops": [
+      "Visit a Kullu shawl weaver at their loom",
+      "Walk Naggar Castle and the Roerich gallery",
+      "Siddu and river-trout lunch at an orchard home"
+    ],
+    "ref": "Reference call: Kullu weavers' cooperative",
+    "vouch": "Vouched by two Naggar homestay owners",
+    "ev": "Electric car",
+    "tip": "Start early; valley roads get busy by late morning."
+  },
+  {
+    "id": "neha",
+    "state": "himachal",
+    "region": "Dharamshala & Kangra",
+    "name": "Neha Katoch",
+    "place": "Dharamshala, Kangra",
+    "tags": [
+      "culture",
+      "heritage",
+      "food",
+      "photo"
+    ],
+    "lang": "Hindi, English, Tibetan",
+    "rate": 2300,
+    "yrs": 7,
+    "blurb": "Local guide who works with the Tibetan community and Kangra tea growers.",
+    "stops": [
+      "Prayer-flag walk and monastery visit in McLeod Ganj",
+      "Tea estate walk in Palampur",
+      "Momo and thukpa dinner with a Tibetan family"
+    ],
+    "ref": "Reference call: Dharamshala guides' society",
+    "vouch": "Vouched by a Tibetan community centre",
+    "ev": "Electric car",
+    "tip": "Dress modestly and be quiet inside monasteries."
+  },
+  {
+    "id": "daiahun",
+    "state": "meghalaya",
+    "region": "Sohra & root bridges",
+    "name": "Daiahun Lyngdoh",
+    "place": "Sohra, East Khasi Hills",
+    "tags": [
+      "trek",
+      "village",
+      "culture",
+      "food"
+    ],
+    "lang": "English, Khasi, Hindi",
+    "rate": 2200,
+    "yrs": 9,
+    "blurb": "Khasi guide who walks guests to living root bridges his family helped tend.",
+    "stops": [
+      "Trek to the double-decker living root bridge near Nongriat",
+      "Natural-pool stop on the trail",
+      "Jadoh and doh-khlieh lunch in a Khasi village kitchen"
+    ],
+    "ref": "Reference call: Sohra village council",
+    "vouch": "Vouched by the Nongriat village headman",
+    "ev": "Electric car",
+    "tip": "Wear shoes with grip; the steps are steep and wet."
+  },
+  {
+    "id": "ibadaka",
+    "state": "meghalaya",
+    "region": "Dawki & Mawlynnong",
+    "name": "Ibadaka Nongrum",
+    "place": "Mawlynnong, East Khasi Hills",
+    "tags": [
+      "village",
+      "photo",
+      "food"
+    ],
+    "lang": "English, Khasi, Hindi",
+    "rate": 1900,
+    "yrs": 6,
+    "blurb": "Village host who runs quiet morning walks before the day trippers arrive.",
+    "stops": [
+      "Morning walk through Mawlynnong gardens and its root bridge",
+      "Boat ride on the clear Umngot river at Dawki",
+      "Evening tea and snacks with a Khasi family"
+    ],
+    "ref": "Reference call: Mawlynnong village committee",
+    "vouch": "Vouched by two homestay hosts",
+    "ev": "Electric car",
+    "tip": "Keep your phone in a dry bag near the river."
+  },
+  {
+    "id": "phi",
+    "state": "meghalaya",
+    "region": "Shillong & Smit",
+    "name": "Phibaiaid Marbaniang",
+    "place": "Shillong, East Khasi Hills",
+    "tags": [
+      "culture",
+      "food",
+      "heritage"
+    ],
+    "lang": "English, Khasi, Hindi",
+    "rate": 2000,
+    "yrs": 8,
+    "blurb": "Shillong native who shows the city's music scene and indigenous culture.",
+    "stops": [
+      "Don Bosco Museum of indigenous cultures",
+      "Police Bazar street-food walk",
+      "Live-music evening at a local venue"
+    ],
+    "ref": "Reference call: Shillong tourism guides' union",
+    "vouch": "Vouched by a Khasi cultural society",
+    "ev": "Electric car",
+    "tip": "Shillong is hilly and can turn rainy fast; carry a light raincoat."
+  },
+  {
+    "id": "neingulo",
+    "state": "nagaland",
+    "region": "Kohima & Khonoma",
+    "name": "Neingulo Kire",
+    "place": "Khonoma, Kohima",
+    "tags": [
+      "village",
+      "heritage",
+      "culture",
+      "trek"
+    ],
+    "lang": "English, Hindi, Angami",
+    "rate": 2200,
+    "yrs": 9,
+    "blurb": "Angami guide from Khonoma, a village known for conservation and old stone gateways.",
+    "stops": [
+      "Walk the terraced fields and stone gateways of Khonoma",
+      "Kohima War Cemetery and the local market",
+      "Smoked pork with bamboo shoot at an Angami home"
+    ],
+    "ref": "Reference call: Khonoma village council",
+    "vouch": "Vouched by the Khonoma tourism society",
+    "ev": "Electric car",
+    "tip": "Ask before photographing people or homes."
+  },
+  {
+    "id": "wangnao",
+    "state": "nagaland",
+    "region": "Mon & Longwa",
+    "name": "Wangnao Konyak",
+    "place": "Mon, Nagaland",
+    "tags": [
+      "culture",
+      "village",
+      "photo"
+    ],
+    "lang": "English, Hindi, Konyak",
+    "rate": 2400,
+    "yrs": 7,
+    "blurb": "Konyak guide who introduces visitors to elders and village life near the Myanmar border.",
+    "stops": [
+      "Meet Konyak elders and hear village stories",
+      "Walk through Longwa on the India-Myanmar border",
+      "Home-cooked meal with a Konyak family"
+    ],
+    "ref": "Reference call: Mon district guides' society",
+    "vouch": "Vouched by a Longwa village elder",
+    "ev": "Electric SUV with planned charging stops",
+    "tip": "Roads are long; plan for slow travel days."
+  }
+]
